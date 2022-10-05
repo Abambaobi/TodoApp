@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+    <link rel="stylesheet" href="bootstrap.css" />
+    <input id="text-bar" type="text" name="" />
+    <input id="date" type="date" name="" />
+    <button id="add-todo" onclick="addTodo()">ADD TODO</button>
+    <button id="delete-todo">DELETE TODO</button>
+    <button id="clear">CLEAR PAGE</button>
+    <div class="container-fluid col-sm col-md"></div>
+  </head>
+  <body>
+    <script>
+      // MODEL SECTION
+      let todo = [];
+      let divCollection = [];
+
+      // VIEW SECTION
+      function render() {
+        const container = document.querySelector(".container-fluid");
+        document.body.appendChild(container);
+        container.innerHTML = "";
+        todo.forEach(function (tod) {
+          const checkBox = document.createElement("input");
+          checkBox.type = "checkbox";
+          const childDiv = document.createElement("div");
+          // childDiv.classList.add("bg-danger");
+          childDiv.id = tod.id;
+
+          childDiv.innerText = tod.name + tod.date;
+          childDiv.style = "margin: 1em; ";
+          childDiv.addEventListener("click", appendedChild);
+
+          container.appendChild(childDiv);
+          childDiv.prepend(checkBox);
+        });
+      }
+
+      // CONTROL SECTION
+      function addTodo() {
+        const text = document.getElementById("text-bar");
+        const date = document.getElementById("date");
+        const textValue = text.value;
+        const dateValue = date.value;
+        todo.push({
+          name: textValue,
+          date: dateValue,
+          id: new Date().getTime().toString(),
+        });
+
+        render();
+      }
+
+      function appendedChild(event) {
+        let selectedDiv = event.target;
+        let selectedDivId = selectedDiv.id;
+
+        todo.forEach((todo) => {
+          if (selectedDivId === todo.id) {
+            selectedDiv.Id = "Abamba, Obi";
+            todo.id = "Abamba, Obi";
+
+            selectedDiv.style =
+              "background-color: black; color: white; margin: 1em";
+
+            selectedDiv.onclick = function () {
+              selectedDiv.style =
+                "background-color: white; color: black; margin: 1em";
+              todo.id = new Date().getTime().toString();
+              selectedDiv.id = todo.id;
+            };
+          }
+        });
+        const deleteButton = document.getElementById("delete-todo");
+        deleteButton.onclick = remove;
+        function remove() {
+          todo = todo.filter((todo) => {
+            if (selectedDiv.Id && todo.id === "Abamba, Obi") {
+              alert(`Are you sure you want to delete ${todo.name} ?`);
+              return false;
+            } else {
+              return true;
+            }
+          });
+          render();
+        }
+      }
+    </script>
+  </body>
+</html>
