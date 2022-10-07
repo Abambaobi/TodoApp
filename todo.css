@@ -1,0 +1,63 @@
+.mycontainer {
+  /* margin-left: 24%; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Mynav {
+}
+
+.DivContainer {
+  display: flex;
+  align-items: center;
+}
+
+.contentList {
+  overflow: hidden;
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+  color: black;
+  width: 51%;
+}
+
+.checkBox {
+  margin-right: -0.5em;
+}
+
+.click {
+  border-radius: 3em;
+  margin: 1em;
+  height: fit-content;
+  color: white;
+  font-weight: bolder;
+}
+
+.childDiv:hover {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-danger-rgb), var(--bs-bg-opacity)) !important;
+  color: white;
+  font-weight: bolder;
+  padding-left: 3em;
+  padding-right: 3em;
+}
+
+.childDiv {
+  margin: 1em;
+  border-radius: 3em;
+  font-weight: bold;
+
+  flex: 1;
+  white-space: nowrap;
+  overflow-y: scroll;
+}
+
+.selectedDivSecond {
+  margin: 1em;
+  color: black;
+  --bs-bg-opacity: 1;
+  background-color: rgba(
+    var(--bs-warning-rgb),
+    var(--bs-bg-opacity)
+  ) !important;
+}

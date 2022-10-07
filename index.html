@@ -5,14 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo App</title>
     <link rel="stylesheet" href="bootstrap.css" />
-    <input id="text-bar" type="text" name="" />
-    <input id="date" type="date" name="" />
-    <button id="add-todo" onclick="addTodo()">ADD TODO</button>
-    <button id="delete-todo">DELETE TODO</button>
-    <button id="clear">CLEAR PAGE</button>
-    <div class="container-fluid col-sm col-md"></div>
+    <link rel="stylesheet" href="todo.css" />
   </head>
   <body>
+    <div class="container-fluid mycontainer">
+      <div class="Mynav row">
+        <button id="clear" class="btn btn-dark">CLEAR PAGE</button>
+        <input id="text-bar" class="col col-md" type="text" name="" />
+        <input id="date" class="col-sm col-md" type="date" name="" />
+
+        <button id="add-todo" class="btn btn-warning" onclick="addTodo()">
+          ADD TODO
+        </button>
+        <button id="delete-todo" class="btn btn-danger">DELETE TODO</button>
+        <div class="contentList bg-light text-dark row-sm row-md"></div>
+      </div>
+    </div>
+
     <script>
       // MODEL SECTION
       let todo = [];
@@ -20,22 +29,46 @@
 
       // VIEW SECTION
       function render() {
+        const contentList = document.querySelector(".contentList");
         const container = document.querySelector(".container-fluid");
-        document.body.appendChild(container);
-        container.innerHTML = "";
+        container.appendChild(contentList);
+        // contentList.classList.add("col-sm-6 col-md-6 col-lg-6 col-xl-6");
+        contentList.innerHTML = "";
         todo.forEach(function (tod) {
           const checkBox = document.createElement("input");
           checkBox.type = "checkbox";
+          checkBox.classList.add("checkBox");
           const childDiv = document.createElement("div");
-          // childDiv.classList.add("bg-danger");
+          childDiv.classList.add("bg-warning");
+          // childDiv.classList.add("row-sm row-md row-lg row-xl");
+          childDiv.classList.add("childDiv");
           childDiv.id = tod.id;
 
           childDiv.innerText = tod.name + tod.date;
-          childDiv.style = "margin: 1em; ";
           childDiv.addEventListener("click", appendedChild);
+          const DivContainer = document.createElement("div");
+          DivContainer.classList.add("DivContainer");
+          const checkContainer = document.createElement("div");
+          checkContainer.style = "display:inline";
+          checkContainer.append(checkBox);
+          DivContainer.append(checkContainer, childDiv);
+          contentList.appendChild(DivContainer);
 
-          container.appendChild(childDiv);
-          childDiv.prepend(checkBox);
+          let clickCount = 0;
+
+          checkBox.onchange = function () {
+            switch (clickCount) {
+              case 0:
+                childDiv.innerText = childDiv.innerText + " " + "(Done)";
+                clickCount = 1;
+                break;
+
+              case 1:
+                childDiv.innerText = tod.name + tod.date;
+                clickCount = 0;
+                break;
+            }
+          };
         });
       }
 
@@ -63,12 +96,11 @@
             selectedDiv.Id = "Abamba, Obi";
             todo.id = "Abamba, Obi";
 
-            selectedDiv.style =
-              "background-color: black; color: white; margin: 1em";
+            selectedDiv.classList.add("bg-danger");
+            selectedDiv.classList.add("click");
 
             selectedDiv.onclick = function () {
-              selectedDiv.style =
-                "background-color: white; color: black; margin: 1em";
+              selectedDiv.classList.add("selectedDivSecond");
               todo.id = new Date().getTime().toString();
               selectedDiv.id = todo.id;
             };
@@ -80,6 +112,11 @@
           todo = todo.filter((todo) => {
             if (selectedDiv.Id && todo.id === "Abamba, Obi") {
               alert(`Are you sure you want to delete ${todo.name} ?`);
+              // const alertz = document.createElement("div");
+              // alertz.innerText = `Are you sure you want to delete ${todo.name} ?`;
+              // alertz.role = "alert";
+              // thi.alertz.classList.add("alert alert-danger");
+
               return false;
             } else {
               return true;
