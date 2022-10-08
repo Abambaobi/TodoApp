@@ -21,7 +21,7 @@ function render() {
     const DivContainer = document.createElement("div");
     DivContainer.classList.add("DivContainer");
     const checkContainer = document.createElement("div");
-    checkContainer.style = "display:inline";
+    checkContainer.classList.add("checkContainer");
     checkContainer.append(checkBox);
     DivContainer.append(checkContainer, childDiv);
     contentList.appendChild(DivContainer);
@@ -50,11 +50,14 @@ function addTodo() {
   const date = document.getElementById("date");
   const textValue = text.value;
   const dateValue = date.value;
-  todo.push({
-    name: textValue,
-    date: dateValue,
-    id: new Date().getTime().toString(),
-  });
+  if (textValue === "") {
+  } else {
+    todo.push({
+      name: textValue,
+      date: dateValue,
+      id: new Date().getTime().toString(),
+    });
+  }
 
   render();
 }
@@ -83,8 +86,17 @@ function appendedChild(event) {
   function remove() {
     todo = todo.filter((todo) => {
       if (selectedDiv.Id && todo.id === "Abamba, Obi") {
-        confirm(`Are you sure you want to delete ${todo.name} ?`);
-        return false;
+        switch (confirm(`Are you sure you want to delete ${todo.name} ?`)) {
+          case true:
+            return false;
+            break;
+
+          case false:
+            todo.id = new Date().getTime().toString();
+            selectedDiv.id = todo.id;
+            return true;
+            break;
+        }
       } else {
         return true;
       }
