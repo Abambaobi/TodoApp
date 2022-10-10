@@ -104,3 +104,14 @@ function appendedChild(event) {
     render();
   }
 }
+
+function clearEverything() {
+  if (todo.length === 0) {
+    return;
+  } else if (confirm(`Clear todo list ?`) === true) {
+    todo = todo.filter(() => false);
+  } else {
+    return true;
+  }
+  render();
+}
