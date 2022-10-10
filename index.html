@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+    <link rel="stylesheet" href="bootstrap.css" />
+    <link rel="stylesheet" href="todo.css" />
+  </head>
+  <body>
+    <div class="container-fluid mycontainer">
+      <div class="Mynav row">
+        <input
+          id="text-bar"
+          placeholder="Enter schedule"
+          class=""
+          type="text"
+          name=""
+        />
+        <input id="date" class="" type="date" name="" />
+
+        <button id="add-todo" class="btn btn-warning" onclick="addTodo()">
+          ADD TODO
+        </button>
+        <button id="delete-todo" class="btn btn-danger">DELETE TODO</button>
+        <button id="clear" onclick="clearEverything()" class="btn btn-dark">
+          CLEAR PAGE
+        </button>
+      </div>
+
+      <!-- carousel -->
+      <div
+        id="carouselExampleSlidesOnly"
+        class="carousel slide"
+        data-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <p class="details one">
+              Contact developer <br />Mobile: +2347031635101 <br />Email:
+              Abambaobi44@gmail.com
+            </p>
+            <img
+              class="d-block w-100"
+              src="./istockphoto-1127894689-612x612.jpg"
+              alt="First slide"
+            />
+          </div>
+          <div class="carousel-item">
+            <p class="details two">
+              Contact developer <br />Mobile: +2347031635101 <br />Email:
+              Abambaobi44@gmail.com
+            </p>
+            <img
+              class="d-block w-100"
+              src="./istockphoto-1019320314-612x612.jpg"
+              alt="Second slide"
+            />
+          </div>
+          <div class="carousel-item">
+            <p class="details three">
+              Contact developer <br />Mobile: +2347031635101 <br />Email:
+              Abambaobi44@gmail.com
+            </p>
+            <img
+              class="d-block w-100"
+              src="./istockphoto-996796324-612x612.jpg"
+              alt="Third slide"
+            />
+          </div>
+          <div class="carousel-item four">
+            <p class="details">
+              Contact developer <br />Mobile: +2347031635101 <br />Email:
+              Abambaobi44@gmail.com
+            </p>
+            <img
+              class="d-block w-100"
+              src="./istockphoto-1144610928-612x612.jpg"
+              alt="fourth slide"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="contentList"></div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
