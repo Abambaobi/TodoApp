@@ -1,0 +1,222 @@
+body {
+  background-image: url(./istockphoto-1326272882-612x612.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.mycontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.checkContainer {
+  background-color: rgb(73, 73, 73);
+}
+
+#text-bar,
+#date {
+  margin: 0em;
+  border: none;
+  box-shadow: 0.2em 0.2em 1.4em #888;
+  border-radius: 0.25em;
+}
+
+.DivContainer {
+  display: flex;
+  align-items: center;
+}
+
+.contentList {
+  background-color: rgb(255 255 255 / 15%);
+  color: black;
+  width: 48%;
+  overflow-y: scroll;
+  margin-top: 3em;
+  height: 65.5vh;
+}
+
+.checkBox {
+  margin-left: 1em;
+  margin-right: 0.7em;
+}
+
+.childDiv {
+  margin: 1em;
+  border-radius: 3em;
+  font-weight: bold;
+  border: rgb(73, 73, 73) solid;
+  flex: 1;
+  white-space: nowrap;
+  padding-left: 1em;
+}
+
+.carousel {
+  width: 22vw;
+  overflow: hidden;
+  position: fixed;
+  left: 1em;
+  top: 0vh;
+  bottom: 35vh;
+}
+
+.w-100 {
+  border-radius: 1em;
+  height: 41vh;
+  opacity: 0.9;
+}
+
+.details {
+  font-family: auto;
+}
+/* Mobile styling starts */
+@media (max-width: 1100px) {
+  .contentList {
+    width: 100%;
+    height: 45vh;
+    background-image: url(./istockphoto-1201918805-612x612.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .checkContainer {
+    display: inline;
+    --bs-bg-opacity: 1;
+    background-color: rgba(
+      var(--bs-danger-rgb),
+      var(--bs-bg-opacity)
+    ) !important;
+    border: none;
+    border-radius: 0em;
+  }
+
+  .click {
+    --bs-bg-opacity: 1;
+    background-color: rgba(
+      var(--bs-danger-rgb),
+      var(--bs-bg-opacity)
+    ) !important;
+    color: white;
+    font-weight: bolder;
+    padding-left: 3em;
+    padding-right: 3em;
+  }
+
+  .selectedDivSecond {
+    margin: 1em;
+    border-radius: 3em;
+    font-weight: bold;
+
+    flex: 1;
+    white-space: nowrap;
+  }
+
+  .childDiv:hover {
+    --bs-bg-opacity: 1;
+    background-color: rgba(
+      var(--bs-warning-rgb),
+      var(--bs-bg-opacity)
+    ) !important;
+    color: black;
+    font-weight: bold;
+    padding-left: 0em;
+    padding-right: 0em;
+  }
+
+  .checkBox {
+    margin-left: 1em;
+    margin-right: 0.7em;
+  }
+
+  .mycontainer {
+    --bs-bg-opacity: 1;
+    background-color: rgba(
+      var(--bs-danger-rgb),
+      var(--bs-bg-opacity)
+    ) !important;
+  }
+
+  #text-bar,
+  #date {
+    width: 46vw;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .carousel {
+    width: 92vw;
+    overflow: hidden;
+    position: fixed;
+    left: 0em;
+    top: 70.4vh;
+    bottom: 0vh;
+    width: 100%;
+    --bs-bg-opacity: 1;
+    background-color: rgba(
+      var(--bs-danger-rgb),
+      var(--bs-bg-opacity)
+    ) !important;
+    border-left: black solid 0.7em;
+  }
+
+  .w-100 {
+    height: 22vh;
+    border-radius: 0em;
+  }
+
+  .details {
+    margin: 0em;
+    padding-left: 0.7em;
+  }
+
+  .one {
+    background-color: #e3d7d7;
+  }
+  .two {
+    background-color: white;
+  }
+  .three {
+    background-color: #a5a5c1;
+    color: rgb(100, 70, 70);
+  }
+  .four {
+    background-color: rgb(1, 101, 141);
+    color: white;
+  }
+
+  .Mynav {
+    padding-top: 1.8em;
+  }
+}
+
+/* pc styling continuation */
+.childDiv:hover {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-danger-rgb), var(--bs-bg-opacity)) !important;
+  color: white;
+  font-weight: bolder;
+  padding-left: 3em;
+  padding-right: 3em;
+}
+
+.click {
+  border-radius: 3em;
+  margin: 1em;
+  height: fit-content;
+  color: white;
+  font-weight: bolder;
+}
+
+.selectedDivSecond {
+  margin: 1em;
+  color: black;
+  --bs-bg-opacity: 1;
+  background-color: rgba(
+    var(--bs-warning-rgb),
+    var(--bs-bg-opacity)
+  ) !important;
+
+  padding-left: 1em;
+}
