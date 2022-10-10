@@ -31,7 +31,7 @@ function render() {
     checkBox.onchange = function () {
       switch (clickCount) {
         case 0:
-          childDiv.innerText = childDiv.innerText + " " + "(Done)";
+          childDiv.innerText = childDiv.innerText + " " + "👌(Done)";
           clickCount = 1;
           break;
 

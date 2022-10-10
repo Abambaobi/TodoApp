@@ -73,7 +73,7 @@ body {
 @media (max-width: 1100px) {
   .contentList {
     width: 100%;
-    height: 45vh;
+    height: 30vh;
     background-image: url(./istockphoto-1201918805-612x612.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -150,7 +150,7 @@ body {
     overflow: hidden;
     position: fixed;
     left: 0em;
-    top: 70.4vh;
+    top: 59vh;
     bottom: 0vh;
     width: 100%;
     --bs-bg-opacity: 1;
@@ -162,7 +162,7 @@ body {
   }
 
   .w-100 {
-    height: 22vh;
+    height: 31vh;
     border-radius: 0em;
   }
 
