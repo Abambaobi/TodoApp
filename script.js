@@ -1,6 +1,14 @@
 // MODEL SECTION
+let todo1 = JSON.parse(localStorage.getItem("newTodo"));
 let todo = [];
 
+if (Array.isArray(todo1)) {
+  todo = todo1;
+  render();
+} else {
+  todo = todo;
+  render();
+}
 // VIEW SECTION
 function render() {
   const contentList = document.querySelector(".contentList");
@@ -59,6 +67,8 @@ function addTodo() {
     });
   }
 
+  localStorage.setItem("newTodo", JSON.stringify(todo));
+
   render();
 }
 
@@ -101,6 +111,8 @@ function appendedChild(event) {
         return true;
       }
     });
+    localStorage.setItem("newTodo", JSON.stringify(todo));
+
     render();
   }
 }
@@ -113,5 +125,6 @@ function clearEverything() {
   } else {
     return true;
   }
+  localStorage.setItem("newTodo", JSON.stringify(todo));
   render();
 }
