@@ -12,20 +12,55 @@ if (Array.isArray(todo1)) {
 // VIEW SECTION
 function render() {
   const contentList = document.querySelector(".contentList");
+
   const container = document.querySelector(".container-fluid");
   container.appendChild(contentList);
   contentList.innerHTML = "";
-  todo.forEach(function (tod) {
+  todo.forEach(function (todo) {
     const checkBox = document.createElement("input");
     checkBox.type = "checkbox";
     checkBox.classList.add("checkBox");
-    const childDiv = document.createElement("div");
+    let clickCount2 = 0;
+    const childDiv = document.createElement("p");
+    childDiv.addEventListener("click", appendedChild);
+    // childDiv.addEventListener("tap", appendedChild);
+
+    function appendedChild(event) {
+      let selectedDiv = event.target;
+      switch (clickCount2) {
+        case 0:
+          console.log(selectedDiv);
+          if (selectedDiv.id === todo.id) {
+            selectedDiv.id = "Abamba, Obi";
+            todo.id = "Abamba, Obi";
+          }
+          clickCount2 = 1;
+          selectedDiv.classList.remove("selectedDivSecond");
+          selectedDiv.classList.add("bg-danger");
+          selectedDiv.classList.add("click");
+          break;
+
+        case 1:
+          console.log(selectedDiv);
+          if (selectedDiv.id && todo.id === "Abamba, Obi") {
+            selectedDiv.classList.add("selectedDivSecond");
+            const newTime = new Date().getTime().toString();
+            selectedDiv.id = newTime;
+            todo.id = newTime;
+          }
+          clickCount2 = 0;
+          break;
+      }
+
+      deleteFunc(selectedDiv);
+    }
+    // );
+
     childDiv.classList.add("bg-warning");
     childDiv.classList.add("childDiv");
-    childDiv.id = tod.id;
+    childDiv.id = todo.id;
 
-    childDiv.innerText = tod.name + " " + tod.date;
-    childDiv.addEventListener("click", appendedChild);
+    childDiv.innerText = todo.name + " " + todo.date;
     const DivContainer = document.createElement("div");
     DivContainer.classList.add("DivContainer");
     const checkContainer = document.createElement("div");
@@ -44,7 +79,7 @@ function render() {
           break;
 
         case 1:
-          childDiv.innerText = tod.name + " " + tod.date;
+          childDiv.innerText = todo.name + " " + todo.date;
           clickCount = 0;
           break;
       }
@@ -72,30 +107,12 @@ function addTodo() {
   render();
 }
 
-function appendedChild(event) {
-  let selectedDiv = event.target;
-  let selectedDivId = selectedDiv.id;
-
-  todo.forEach((todo) => {
-    if (selectedDivId === todo.id) {
-      selectedDiv.Id = "Abamba, Obi";
-      todo.id = "Abamba, Obi";
-
-      selectedDiv.classList.add("bg-danger");
-      selectedDiv.classList.add("click");
-
-      selectedDiv.onclick = function () {
-        selectedDiv.classList.add("selectedDivSecond");
-        todo.id = new Date().getTime().toString();
-        selectedDiv.id = todo.id;
-      };
-    }
-  });
+function deleteFunc(selectedDiv) {
   const deleteButton = document.getElementById("delete-todo");
   deleteButton.onclick = remove;
   function remove() {
     todo = todo.filter((todo) => {
-      if (selectedDiv.Id && todo.id === "Abamba, Obi") {
+      if (selectedDiv.id && todo.id === "Abamba, Obi") {
         switch (confirm(`Are you sure you want to delete ${todo.name} ?`)) {
           case true:
             return false;
