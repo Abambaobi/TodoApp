@@ -9,6 +9,7 @@ if (Array.isArray(todo1)) {
   todo = todo;
   render();
 }
+
 // VIEW SECTION
 function render() {
   const contentList = document.querySelector(".contentList");
